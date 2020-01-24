@@ -136,10 +136,10 @@ exports.apiCreateEvent = async (req, res) => {
     res.json(response)
   } else {
     try {
+      req.body.startDateTime = req.body.startTime;
       req.body.date = formattedDate(new Date(req.body.startTime.split('T')[0]))
       req.body.startTime = formatAMPM(new Date(req.body.startTime.split('T')))
-      console.log(req.body)
-      const { name, cluster, cup, description, rules, date, startTime, points, venue, places } = req.body
+      const { name, cluster, cup, description, rules, date, startTime, startDateTime, points, venue, places } = req.body
       const newEvent = await Event.create({
         name,
         cluster,
@@ -148,6 +148,7 @@ exports.apiCreateEvent = async (req, res) => {
         rules,
         date,
         startTime,
+        startDateTime,
         points,
         venue,
         places
@@ -174,21 +175,22 @@ exports.apiEditEvent = async (req, res) => {
   } else {
     try {
       const eventToEdit = await Event.findById(req.params.id)
-      const {
-        name, cluster, cup, description, rules, venue, date, startTime, endTime, places, points
-      } = req.body
+      req.body.startDateTime = req.body.startTime;
+      req.body.date = formattedDate(new Date(req.body.startTime.split('T')[0]))
+      req.body.startTime = formatAMPM(new Date(req.body.startTime.split('T')))
+      const { name, cluster, cup, description, rules, date, startTime, startDateTime, points, venue, places } = req.body
       Object.assign(eventToEdit, {
         name,
         cluster,
         cup,
         description,
         rules,
-        venue,
         date,
         startTime,
-        endTime,
-        places,
-        points
+        startDateTime,
+        points,
+        venue,
+        places
       })
       await eventToEdit.save()
       logger.info(`Event ${eventToEdit.name} has been Edited by ${req.adminuser}`)
