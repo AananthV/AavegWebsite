@@ -56,6 +56,7 @@ exports.apiLogin = async (req, res) => {
 
           logger.info(`student ${req.body.rollnumber} logged in using API`)
 
+          connection.end();
           res.status(200)
           res.send(response)
         })
@@ -66,6 +67,7 @@ exports.apiLogin = async (req, res) => {
 
         logger.info(`student ${req.body.rollnumber} logged in using API`)
 
+        connection.end();
         res.status(200)
         res.send(response)
       }

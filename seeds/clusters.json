@@ -1,26 +1,23 @@
 [
     {
-        "name": "Culturals"
+        "name": "Dance"
     },
     {
         "name": "Lits"
     },
     {
-        "name": "Dramatics"
+        "name": "Music"
     },
     {
-        "name": "Videography"
+        "name": "Dramatics"
     },
     {
         "name": "Sports"
     },
     {
-        "name": "Miscellaneous"
+        "name": "Media"
     },
     {
-        "name": "Gaming"
-    },
-    {
-        "name": "Arts"
+        "name": "Misc"
     }
 ]

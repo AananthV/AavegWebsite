@@ -136,7 +136,7 @@ exports.apiCreateEvent = async (req, res) => {
     res.json(response)
   } else {
     try {
-      req.body.startDateTime = req.body.startTime;
+      req.body.startDateTime = req.body.startTime
       req.body.date = formattedDate(new Date(req.body.startTime.split('T')[0]))
       req.body.startTime = formatAMPM(new Date(req.body.startTime.split('T')))
       const { name, cluster, cup, description, rules, date, startTime, startDateTime, points, venue, places } = req.body
@@ -175,7 +175,7 @@ exports.apiEditEvent = async (req, res) => {
   } else {
     try {
       const eventToEdit = await Event.findById(req.params.id)
-      req.body.startDateTime = req.body.startTime;
+      req.body.startDateTime = req.body.startTime
       req.body.date = formattedDate(new Date(req.body.startTime.split('T')[0]))
       req.body.startTime = formatAMPM(new Date(req.body.startTime.split('T')))
       const { name, cluster, cup, description, rules, date, startTime, startDateTime, points, venue, places } = req.body
