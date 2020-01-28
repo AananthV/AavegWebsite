@@ -55,8 +55,7 @@ exports.apiLogin = async (req, res) => {
           response.APIToken = jwt.sign({ user_id: response.user_id, rollnumber: req.body.rollnumber, time: Date.now() }, config.apiSecret)
 
           logger.info(`student ${req.body.rollnumber} logged in using API`)
-
-          connection.end();
+          
           res.status(200)
           res.send(response)
         })
@@ -67,7 +66,6 @@ exports.apiLogin = async (req, res) => {
 
         logger.info(`student ${req.body.rollnumber} logged in using API`)
 
-        connection.end();
         res.status(200)
         res.send(response)
       }
