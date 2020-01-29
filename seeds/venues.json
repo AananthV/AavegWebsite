@@ -8,5 +8,25 @@
         "name": "LHC",
         "lat": 1236,
         "lng": 2162
-    }
+    },
+    {
+        "name": "Barn",
+        "lat": 1236,
+        "lng": 2162
+    },
+    {
+        "name": "Jade Ground",
+        "lat": 1236,
+        "lng": 2162
+    },
+    {
+        "name": "CEESAT Ground",
+        "lat": 1236,
+        "lng": 2162
+    },
+    {
+        "name": "NSO Ground",
+        "lat": 1236,
+        "lng": 2162
+    },
 ]
