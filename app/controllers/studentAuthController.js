@@ -37,6 +37,7 @@ exports.apiLogin = async (req, res) => {
     const response = {
       message: 'Login Successful'
     }
+    connection.end()
 
     // Find User ID
     Student.findOne({ rollnumber: req.body.rollnumber }, function (err, student) {
@@ -55,7 +56,7 @@ exports.apiLogin = async (req, res) => {
           response.APIToken = jwt.sign({ user_id: response.user_id, rollnumber: req.body.rollnumber, time: Date.now() }, config.apiSecret)
 
           logger.info(`student ${req.body.rollnumber} logged in using API`)
-          
+
           res.status(200)
           res.send(response)
         })
