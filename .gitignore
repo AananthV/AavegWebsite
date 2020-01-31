@@ -1,5 +1,6 @@
 /node_modules
 config/config.js
+config/adminAccess.js
 npm-debug.log*
 logs/*
 .vscode/*
