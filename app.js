@@ -17,6 +17,7 @@ const eventRoutes = require('./app/routes/events')
 const hostelRoutes = require('./app/routes/hostel.js')
 // const miscRoutes = require('./app/routes/misc')
 const scoreRoutes = require('./app/routes/scoreboard.js')
+const sponsorRoutes = require('./app/routes/sponsor.js')
 // const tshirtRoutes = require('./app/routes/tshirtReg.js')
 const router = express.Router()
 
@@ -54,6 +55,7 @@ app.use(adminAuthRoutes)
 app.use(hostelRoutes)
 app.use(eventRoutes)
 app.use(scoreRoutes)
+app.use(sponsorRoutes)
 // app.use(miscRoutes)
 
 app.get('*', (req, res) => {
