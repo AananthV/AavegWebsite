@@ -303,7 +303,7 @@ const apiScoreboard = async (req, res) => {
         recents[String(hostel)] = []
       }
 
-      if (recents[String(hostel)].length < 3) {
+      if (recents[String(hostel)].length < 4) {
         const recentObj = {
           event_name: item.details[0].event_name[0],
           position: getOrdinalNumber(item._id.position)
