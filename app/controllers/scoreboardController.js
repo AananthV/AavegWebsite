@@ -276,8 +276,12 @@ const apiScoreboard = async (req, res) => {
       if (item._id.cup[0] == 'Sports') { sportsTotals.push(item) }
       if (item._id.cup[0] == 'Spectrum') { spectrumTotals.push(item) }
 
-      let hostel = item._id.hostel[0]
-      if (total[String(hostel)] != undefined) { total[String(hostel)] += item.hostel_total_points } else { total[String(hostel)] = item.hostel_total_points }
+      if (item._id.cup[0] == 'Culturals' || item._id.cup[0] == 'Spectrum') {
+        let hostel = item._id.hostel[0]
+        if (total[String(hostel)] != undefined) { total[String(hostel)] += item.hostel_total_points } else { total[String(hostel)] = item.hostel_total_points }      
+      }
+      //let hostel = item._id.hostel[0]
+      //if (total[String(hostel)] != undefined) { total[String(hostel)] += item.hostel_total_points } else { total[String(hostel)] = item.hostel_total_points }
     })
 
     culturalTotals = culturalTotals.map(pointsMapper)
